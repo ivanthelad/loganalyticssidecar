@@ -1,0 +1,36 @@
+ {
+    
+      "host": "dododod",
+  
+      "key": "oms",
+  
+      "type": "myrandomtype",
+  
+      "_length": 219,
+  
+      "path": "/somepath",
+    
+      "loadbalancer-ip": "127.0.0.1",
+  
+      "client-ip": "-",
+  
+      "somenumber": "anumber",
+  
+      "env-prefix": "{{-}}",
+  
+      "target-host": "localhost:8901",
+  
+      "routing": "-::-::-::-::0",
+  
+      "operation": "GET",
+      "url": "/blablabal",
+      "http-version": "HTTP/1.1",
+      "parameter.httpStatus": 404,
+      "response-size": 137,
+      "time-taken": 81,
+      "keepalive": "20",
+      "connection-status-and-content-length": "+ -",
+      "tags": []
+  
+}
+  
