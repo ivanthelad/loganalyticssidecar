@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loganalyticssidecar-deployment
+  labels:
+    app: loganalyticssidecar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loganalyticssidecar
+  template:
+    metadata:
+      labels:
+        app: loganalyticssidecar
+    spec:
+      volumes:
+      - name: shared-data
+        emptyDir: {}
+      containers:
+      - name: jsonloggenerator
+        image: ivmckinl/jsonloggenerator
+        volumeMounts:
+        - name: shared-data
+          mountPath: /tmp
+      - name: loganalyticssidecar
+        image: ivmckinl/loganalyticssidecar
+        volumeMounts:
+        - name: shared-data
+          mountPath: /tmp
+        env:
+        - name: LOGFILEPATH
+          value: "/tmp/mylog.json"
+        - name: LOGTABLE
+          value: "jsontable"
+        - name: WORKSPACEID
+          value: "XXXXXX"
+        - name: WORKSPACEKEY
+          value: "XXXXXXX"
+
